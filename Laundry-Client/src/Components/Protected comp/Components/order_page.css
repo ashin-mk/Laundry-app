@@ -1,0 +1,96 @@
+.order{
+    position: absolute;
+    top: 119px;
+    left: 60px;
+    width: 1380px;
+    height: 830px;
+    overflow: scroll;
+    overflow-x:hidden; 
+    overflow-y:auto
+}
+.orderv{
+    position: absolute;
+    top: 60px;
+    left: 80px;
+    width: 179px;
+    height: 25px;
+    text-align: left;
+    font: normal normal 600 18px/48px Open Sans;
+    letter-spacing: 0px;
+    color: #1E2022;
+    text-transform: capitalize;
+    opacity: 1;
+}
+.class{
+    float: right;
+    margin-top: -45px;
+}
+.create{
+    position: absolute;
+    top: 82px;
+    left: 1059px;
+    width: 107px;
+    height: 32px;
+    border: 1px solid #5861AE;
+    border-radius: 4px;
+    opacity: 1;
+}
+.search{
+    position: absolute;
+    top: 85px;
+left: 1192px;
+width: 200px;
+height: 21px;
+opacity: .3;
+
+overflow: hidden;
+}
+.magnifine{
+    position: absolute;
+    top: 87px;
+left: 1195px;
+width: 1em;
+height: 21px;
+opacity: 1;
+  }
+.order_table{
+    width: 1340px;
+    border: none;
+    background-color: black;
+    color: #FFFFFF;
+    text-align: left;
+    font: normal normal 600 12px/48px Open;
+    font-family: sans-serif;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+    margin-left: 20px;
+}
+.order_table tr th{
+    padding: 3px 10px;
+}
+.order_data{
+    display: flex;
+    border: 1px solid rgb(192, 191, 191);
+    width:1340px;
+    margin-left: 20px;
+}
+.order_p{
+    margin-left: 10px;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font: normal normal 600 16px/22px Open ;
+    font-family: sans-serif;
+    letter-spacing: 0.3px;
+    color: #1B2734;
+    opacity: 1;
+}
+.c_o{
+    margin: 0px 10px;
+    width: 120px;
+}
+.btn1{ 
+    background-color: #FFFFFF;
+    border: none;
+}

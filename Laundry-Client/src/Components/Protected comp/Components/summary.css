@@ -1,0 +1,225 @@
+.modalBackground{
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 1440px;
+    height: 1000px;
+    position: absolute;
+    top:0px;
+}
+.card{position: absolute;
+    top: 0px;
+    left: 518px;
+    width: 926px;
+    height: 90px;
+    background: #5861AE 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.h{
+    display: flex;
+}
+.h p{
+    margin-left: 20px;
+    top: 21px;
+    left: 532px;
+    width: 102px;
+    height: 30px;
+    text-align: left;
+    font: normal normal 600 22px/20px Open ;
+    font-family: sans-serif;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+}
+#close{
+    border: none;
+    font-size: 30px;
+    background-color: #5861AE;
+    color: #FFFFFF;
+    padding:0px;
+    margin-left: 760px;
+}
+.section{
+    display: flex;
+    top: 72px;
+    left: 514px;
+    width: 926px;
+    height: 98px;
+    background: #F4F9FF 0% 0% no-repeat padding-box;
+}
+.Title{
+    margin-right: 30px;
+    top: 91px;
+    left: 557px;
+    width: 206px;
+    height: 22px;
+    text-align: left;
+    font: normal normal 600 16px/22px Open ;
+    font-family: sans-serif;
+    letter-spacing: 0.38px;
+    color: #1B2734;
+    opacity: 1;
+}
+.Tval{
+    margin-top: 15px;
+    top: 126px;
+    left: 559px;
+    width: 206px;
+    height: 22px;
+    text-align: left;
+    font: normal normal normal 16px/22px Open;
+    font-family: sans-serif;
+    letter-spacing: 0.38px;
+    color: #1B2734;
+    opacity: 1;
+}
+.track{
+    margin-top: -20px;
+    height: 100px;
+    background-color: #FFFFFF;
+    border-bottom: 2px solid rgb(168, 168, 168);
+}
+.track_v {
+    display: flex;
+    text-align: center;
+    padding-top: 20px;
+    font: normal normal 600 16px/22px Open ;
+    font-family: sans-serif;
+    letter-spacing: 0.38px;
+    color: #1B2734;
+    opacity: 1;
+}
+.t_dis{
+    display: flex;
+    width: 200px;
+}
+.line{
+    width: 100%;
+}
+.orderDetail{
+    background-color: #FFFFFF;
+    margin-top: -20px;
+    border-bottom: 2px solid rgb(168, 168, 168);
+    height: 440px;
+}
+.orderDetail p{
+    text-align: left;
+    font: normal normal 600 20px/48px Open;
+    padding-left: 20px;
+    font-family: sans-serif;
+    letter-spacing: 0.42px;
+    color: #3B3737;
+    opacity: 1;
+}
+.o_d{
+    display: flex;
+    width: 90%;
+    height: 40px;
+    margin-left: 20px;
+    border-bottom: 2px solid rgb(221, 220, 220);
+}
+.item_n{
+    margin-left: -30px;
+    width: 320px;
+    text-align: left;
+    font: normal normal normal 18px/24px Open;
+    font-family: sans-serif;
+    letter-spacing: 0.43px;
+    color: #1B2734;
+    opacity: 1;
+}
+.item_t{
+    text-align: left;
+    width: 400px;
+    font: italic normal normal 16px/22px Open;
+    font-family: sans-serif;
+    letter-spacing: 0.38px;
+    color: #1B2734;
+    opacity: 1;
+}
+.item_p{
+    text-align: left;
+    display: flex;
+    font: normal normal 600 16px/22px Open;
+    font-family: sans-serif;
+    letter-spacing: 0.38px;
+    color: #1B2734;
+    opacity: 1;
+}
+.item_p p{
+    margin-top: -5px;
+    text-align: left;
+    font: normal normal 600 20px/27px Open;
+    font-family: sans-serif;
+    letter-spacing: 0.48px;
+    color: #5861AE;
+    opacity: 1;
+}
+.sub_t{
+    float: right;
+    margin-top: -30px;
+    border-bottom: 2px solid rgb(216, 213, 213);
+    margin-right: 30px;
+}
+.pick{
+    margin-top: -20px;
+    border-top: 2px solid rgb(224, 224, 224);
+}
+.total{
+    margin-top: -10px;
+    margin-right: 20px;
+    width: 95%;
+    height: 80px;
+    float: right;
+    background: #5861AE 0% 0% no-repeat padding-box;
+    opacity: 1;
+    color: #FFFFFF;
+}
+.total p{
+    float: right;
+    margin-right: 20px;
+    color: #FFFFFF;
+}
+.display_add{
+    margin-top: -15px;
+    background-color: #FFFFFF;
+    height: 290px;
+}
+.display_add p{
+    margin-left: 20px;
+    top: 656px;
+    left: 549px;
+    width: 250px;
+    height: 19px;
+    text-align: left;
+    font: normal normal 600 14px/19px Open;
+    font-family: sans-serif;
+    letter-spacing: 0.42px;
+    color: #3B3737;
+    opacity: 1;
+}
+.address-block{
+    margin-left: 20px;
+    top: 700px;
+    left: 549px;
+    width: 250px;
+    height: 85px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border: 1px solid #5861AE;
+    border-radius: 4px;
+    opacity: 1;
+}
+.foot{
+    background-color: rgb(226, 226, 226);
+    height: 70px;
+    color:rgb(226, 226, 226) ;
+}
+.footbtn{
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+    border: none;
+    background-color: red;
+    color: #FFFFFF;
+    padding: 10px;
+    font-family: sans-serif;
+}
