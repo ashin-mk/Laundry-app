@@ -19,8 +19,7 @@ app.listen(process.env.PORT || 3001,(err)=>{
         console.log(err)
     }
 });
-//mongodb+srv://Sakshi09:test123@instaclone.gwk4cly.mongodb.net/laundry?retryWrites=true&w=majority
-const laundryDB= "mongodb+srv://Ashindeedu:ashin123@ashinmk.rxye7.mongodb.net/Laundry?retryWrites=true&w=majority"
+const laundryDB= "mongodb://localhost/Laundry"
 mongoose.connect(laundryDB,()=>{
     console.log("Successfully connect to db")
 },(err)=>{
