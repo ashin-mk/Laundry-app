@@ -69,7 +69,7 @@ left: 0px;
   /* display: flex; */
   /* justify-content: space-between; */
   width: 200px;
-  height: 90px;
+  height:auto;
   border-radius: 4%;
 
 }

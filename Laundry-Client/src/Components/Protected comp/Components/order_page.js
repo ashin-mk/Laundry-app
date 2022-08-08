@@ -23,8 +23,11 @@ const OrderPage = ()=>{
             }
         })
             .then((datas) => {
-                setorderhistory(true)
-                setOrderData(datas.data)})
+                if(datas.data.length){
+                    setorderhistory(true)
+                    setOrderData(datas.data)
+                }
+                })
     }, [])
     const handleView = (data) =>{
         setViewdata(data);
@@ -32,6 +35,9 @@ const OrderPage = ()=>{
     return (
         <>
     
+       
+       {orderhistory &&
+       <div>
        <HeaderP2/>
        <p className="orderv">Order | {orderData.length}</p>
         <div className="class">
@@ -39,88 +45,97 @@ const OrderPage = ()=>{
         <img className='magnifine' src="/images/search.png" alt=""/>
         <input type="search1" className="search"/>
         </div>
-       {orderhistory &&
         <div className="order">
         
-        <table className="order_table" style={{border: "none"}}>
-            <tr>
-                <th style={{width:"90px"}}>
+        <table >
+            <tr className="order_table" style={{border: "none"}}>
+                <th style={{width:"110px"}}>
                     Order Id
                 </th>
-                <th style={{width:"150px"}}>
+                <th style={{width:"190px"}}>
                     Order Date & Time
                 </th>
-                <th style={{width:"140px"}}>
+                <th style={{width:"155px"}}>
                     Store Location
                 </th>
-                <th style={{width:"100px"}}>
+                <th style={{width:"128px"}}>
                     City
                 </th>
-                <th style={{width:"100px"}}>
+                <th style={{width:"180px"}}>
                     Store Phone
                 </th>
-                <th style={{width:"90px"}}>
+                <th style={{width:"120px"}}>
                     Total Price
                 </th>
-                <th style={{width:"90px"}}>
+                <th style={{width:"100px"}}>
                     Price
                 </th>
-                <th style={{width:"140px"}}>
+                <th style={{width:"130px"}}>
                     Status
                 </th>
-                <th style={{width:"60px"}}>
+                <th style={{width:"140px"}}>
+
+                </th>
+                <th style={{width:"70px"}}>
                     View
                 </th>
             </tr>
-            </table>
-            <div>
             {orderData.map((data, index)=>{
                 return(
 
-                    <div key={index} className="order_data">
-                    <div className="order_p" style={{width: "110px"}}>
+                    <tr key={index} className="order_data">
+                    <td className="order_p" style={{width: "80px"}}>
                     {data.orderId}
-                    </div>
-                    <div className="order_p" style={{width: "180px"}}>
+                    </td>
+                    <td className="order_p" style={{width: "180px"}}>
                     {data.dateTime}
-                    </div>
-                    <div className="order_p" style={{width: "150px"}}>
+                    </td>
+                    <td className="order_p" style={{width: "150px"}}>
                     {data.storeInfo.address}
-                    </div>
-                    <div className="order_p" style={{width: "120px"}}>
+                    </td>
+                    <td className="order_p" style={{width: "120px"}}>
                     {data.storeInfo.name}
-                    </div>
-                    <div className="order_p" style={{width: "180px"}}>
+                    </td>
+                    <td className="order_p" style={{width: "180px"}}>
                     {data.storeInfo.phone}
-                    </div>
-                    <div className="order_p" style={{width: "100px"}}>
+                    </td>
+                    <td className="order_p" style={{width: "100px"}}>
                     {data.price}
-                    </div>
-                    <div className="order_p" style={{width: "90px"}}>
+                    </td>
+                    <td className="order_p" style={{width: "90px"}}>
                     {data.price-90}
-                    </div>
-                    <div className="order_p" style={{width: "120"}}>
-                    {data.status}
-                    { data.status === "Ready to pickup" ? <div style={{color: "red"}} className="c_o">Cancel Order</div> : <div style={{color: "white"}} className="c_o"></div>}
-                    </div>
-                    <button 
+                    </td>
+                    <td className="order_p" style={{width: "120"}}>
+                    {data.status}</td>
+                    { data.status === "Ready to pickup" && <td style={{color: "red",width:"120px"}} className="c_o">Cancel Order</td>}
+                    {data.status !=="Ready to pickup" && <td style={{color: "white",width:"120px"}} className="c_o"></td>}
+                    <td
                   className="btn1" 
-                  onClick={() => setSummary(true)}><span onClick={() => handleView(data)} className="material-symbols-outlined"><img src="/images/eyebutton.jpg"/></span></button>
-                    </div>
+                  onClick={() => setSummary(true)}><span onClick={() => handleView(data)} className="material-symbols-outlined"><img src="/images/eyebutton.jpg" style={{height:"25px",width:"32px",marginTop:"12px"}}/></span></td>
+                    </tr>
                 )
             })}
+
+            </table>
+            <div>
+            
                   
                 </div>
+        </div>
         </div> }
-        {!orderhistory &&  <div className="content">
+        {!orderhistory && 
+        <div>
+        <HeaderP2/>
+        <div className="content">
         <p className="orderno">Order | 0</p>
         <div className="create_search">
         <input type="search" className="search"/>
-        <img className='magnifines' src="/images/search.png" alt=""/>
+        <img className='magnifine' src="/images/search.png" alt=""/>
         </div>
         <div className="create_order">
             <p>No Order Available</p>
             <Link to ="/create-order"><button>Create</button></Link>
+        </div>
         </div>
         </div>
         }

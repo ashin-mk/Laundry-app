@@ -41,28 +41,30 @@
 left: 1192px;
 width: 200px;
 height: 21px;
-opacity: .3;
-
+opacity: .4;
+border-style: none;
+border-bottom-style:solid;
 overflow: hidden;
 }
 .magnifine{
     position: absolute;
     top: 87px;
 left: 1195px;
-width: 1em;
-height: 21px;
+width: 10px;
+height: 15px;
 opacity: 1;
   }
 .order_table{
-    width: 1340px;
+    display: flex;
+    flex: 1;
     border: none;
     background-color: black;
     color: #FFFFFF;
-    text-align: left;
     font: normal normal 600 12px/48px Open;
     font-family: sans-serif;
     letter-spacing: 0px;
     color: #FFFFFF;
+    text-align: left;
     opacity: 1;
     margin-left: 20px;
 }
@@ -71,6 +73,7 @@ opacity: 1;
 }
 .order_data{
     display: flex;
+    flex:1;
     border: 1px solid rgb(192, 191, 191);
     width:1340px;
     margin-left: 20px;
@@ -87,10 +90,24 @@ opacity: 1;
     opacity: 1;
 }
 .c_o{
-    margin: 0px 10px;
+    margin:10px;
     width: 120px;
 }
 .btn1{ 
     background-color: #FFFFFF;
     border: none;
+    width: 60px;
+}
+.create_order{
+    position: absolute;
+    top: 415px;
+    left: 685px;
+    text-align: center;
+}
+.create_order button{
+    width: 107px;
+    height: 32px;
+    border: 1px solid #5861AE;
+    border-radius: 4px;
+    opacity: 1;   
 }

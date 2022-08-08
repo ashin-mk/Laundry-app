@@ -166,7 +166,7 @@ else{
                                 <p className="ho"><b>Home</b></p>
                                 <div><img src="/images/tick.svg" alt=""></img></div>
                             </div>
-                            <p className="add_u">#223, 10th road, Jp Nagar,<br></br>Bangalore</p>     
+                            <p className="add_u">{userData[0].Address}</p>     
                             
                         </div>
 
