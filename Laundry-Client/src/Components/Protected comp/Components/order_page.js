@@ -10,6 +10,8 @@ import FooterSecond from "./footerP2";
 
 const OrderPage = ()=>{
     const [summary, setSummary] = useState(false);
+    const [issearch,setisSearch]=useState(false)
+    const [search,setSearch]=useState("")
     const [orderData, setOrderData] = useState([]);
     const Authtoken=localStorage.getItem("authorization")
     const [orderhistory,setorderhistory]=useState(false)
@@ -31,19 +33,26 @@ const OrderPage = ()=>{
     }, [])
     const handleView = (data) =>{
         setViewdata(data);
+        
+    }
+    const handleSearch=(e)=>{
+setSearch(e.target.value)
+        if(search.length){
+            setisSearch(true)
+        }
+        console.log(search)
     }
     return (
         <>
-    
        
-       {orderhistory &&
+       {orderhistory && 
        <div>
        <HeaderP2/>
        <p className="orderv">Order | {orderData.length}</p>
+       <Link to="/create-order"><button className="create">Create</button></Link>
         <div className="class">
-        <Link to="/create-order"><button className="create">Create</button></Link>
         <img className='magnifine' src="/images/search.png" alt=""/>
-        <input type="search1" className="search"/>
+        <input type="number" onChange={(e)=>handleSearch(e)} className="search"/>
         </div>
         <div className="order">
         
@@ -80,7 +89,7 @@ const OrderPage = ()=>{
                     View
                 </th>
             </tr>
-            {orderData.map((data, index)=>{
+            {issearch===false && orderData.map((data, index)=>{
                 return(
 
                     <tr key={index} className="order_data">
@@ -114,12 +123,48 @@ const OrderPage = ()=>{
                   onClick={() => setSummary(true)}><span onClick={() => handleView(data)} className="material-symbols-outlined"><img src="/images/eyebutton.jpg" style={{height:"25px",width:"32px",marginTop:"12px"}}/></span></td>
                     </tr>
                 )
-            })}
+            }
+            
+            )}
+            {issearch===true && orderData.map((data, index)=>{
+                if(data.orderId.includes(search)){ 
+                return(
 
+                    <tr key={index} className="order_data">
+                    <td className="order_p" style={{width: "80px"}}>
+                    {data.orderId}
+                    </td>
+                    <td className="order_p" style={{width: "180px"}}>
+                    {data.dateTime}
+                    </td>
+                    <td className="order_p" style={{width: "150px"}}>
+                    {data.storeInfo.address}
+                    </td>
+                    <td className="order_p" style={{width: "120px"}}>
+                    {data.storeInfo.name}
+                    </td>
+                    <td className="order_p" style={{width: "180px"}}>
+                    {data.storeInfo.phone}
+                    </td>
+                    <td className="order_p" style={{width: "100px"}}>
+                    {data.price}
+                    </td>
+                    <td className="order_p" style={{width: "90px"}}>
+                    {data.price-90}
+                    </td>
+                    <td className="order_p" style={{width: "120"}}>
+                    {data.status}</td>
+                    { data.status === "Ready to pickup" && <td style={{color: "red",width:"120px"}} className="c_o">Cancel Order</td>}
+                    {data.status !=="Ready to pickup" && <td style={{color: "white",width:"120px"}} className="c_o"></td>}
+                    <td
+                  className="btn1" 
+                  onClick={() => setSummary(true)}><span onClick={() => handleView(data)} className="material-symbols-outlined"><img src="/images/eyebutton.jpg" style={{height:"25px",width:"32px",marginTop:"12px"}}/></span></td>
+                    </tr>
+                )}
+            })}
+        
             </table>
             <div>
-            
-                  
                 </div>
         </div>
         </div> }

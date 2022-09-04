@@ -22,9 +22,15 @@
     opacity: 1;
 }
 .class{
-    float: right;
-    margin-top: -45px;
+    position: absolute;
+    left:1192px;
+    top:82px;
+    width: 210px;
+    border-radius: 5px;
+    height: 30px;
+    border:solid 1px rgba(65, 57, 57, 0.695);
 }
+
 .create{
     position: absolute;
     top: 82px;
@@ -37,19 +43,18 @@
 }
 .search{
     position: absolute;
-    top: 85px;
-left: 1192px;
-width: 200px;
+    top: 4px;
+left: 24px;
+width: 180px;
 height: 21px;
 opacity: .4;
 border-style: none;
-border-bottom-style:solid;
 overflow: hidden;
 }
 .magnifine{
     position: absolute;
-    top: 87px;
-left: 1195px;
+    top: 8px;
+left: 5px;
 width: 10px;
 height: 15px;
 opacity: 1;
