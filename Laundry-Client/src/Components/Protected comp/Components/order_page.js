@@ -19,7 +19,7 @@ const OrderPage = ()=>{
     useEffect(() => {
         axios({
             method:'GET',
-            url:'https://ashin-laundry-server.herokuapp.com/create-order',
+            url:'http://localhost:3001/create-order',
             headers:{
                 authorization:Authtoken
             }

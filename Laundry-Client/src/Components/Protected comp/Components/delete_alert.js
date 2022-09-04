@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
     // console.log(props)
       const DeleteOrder = (id)=>{
         // e.preventDefault();
-        axios.delete(`https://ashin-laundry-server.herokuapp.com/cancel/${id}`).then(()=>{
+        axios.delete(`http://localhost:3001/cancel/${id}`).then(()=>{
           window.location.reload(false)
           // Navigate("/viewOrder");
         })

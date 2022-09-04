@@ -13,7 +13,7 @@ const SummaryPg = (props) => {
     const [storedetails,setstoredetails]=useState(false)
     // console.log(userData)
     useEffect(() => {
-        fetch("https://ashin-laundry-server.herokuapp.com/user", {
+        fetch("http://localhost:3001/user", {
             headers: {
                 authorization: Token,
             },
@@ -81,7 +81,7 @@ const SummaryPg = (props) => {
         // console.log(trigger);
         if(storedetails===true){
             axios({method:'POST',
-            url:"https://ashin-laundry-server.herokuapp.com/create-order",
+            url:"http://localhost:3001/create-order",
                 data:{
                     userId: userData[0].Email,
                     orderId: orderId,

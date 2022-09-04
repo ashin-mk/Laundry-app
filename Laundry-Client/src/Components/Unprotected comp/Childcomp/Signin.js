@@ -15,7 +15,7 @@ const [data,setdata]=useState({
   const handlesubmit=(e)=>{
 e.preventDefault()
 if(data.Password.length && data.User.length){
-axios.post("https://ashin-laundry-server.herokuapp.com/Signin",data).then((loginData)=>{
+axios.post("http://localhost:3001/Signin",data).then((loginData)=>{
   localStorage.setItem("authorization",loginData.data.Authtoken) 
   // console.log(loginData.data.username)
   localStorage.setItem("username",loginData.data.username)

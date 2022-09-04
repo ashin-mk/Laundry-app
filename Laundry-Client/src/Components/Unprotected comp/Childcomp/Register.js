@@ -11,7 +11,7 @@ const Register = (props) => {
   const handleRegister=(e)=>{
     e.preventDefault()
     if((data.Phone+"").length===10  &&data.Email.includes('@gmail.com')){
- axios.post("https://ashin-laundry-server.herokuapp.com/Register",data)
+ axios.post("http://localhost:3001/Register",data)
     .then(()=>{
       props.handlepopup(true)
     })
