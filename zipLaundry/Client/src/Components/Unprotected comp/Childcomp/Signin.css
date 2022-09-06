@@ -1,0 +1,92 @@
+#Signin-comp{
+    height: 769px;
+    width: 710px;
+    background-color: #B9C0FD1A;
+    top:81px;
+    left: 730px;
+    position: absolute;
+}
+#Heading-signin{
+    position: absolute;
+    top: 182px;
+    left: 130px;
+    width: 128px;
+    height: 44px;
+    text-align: left;
+    font-size: 32px;
+    font-family: Avenir;
+    letter-spacing: 1.28px;
+    color: #4552C1;
+    text-transform: uppercase;
+    opacity: 1;
+}
+.signin-inputs-fields{
+    margin:250px 0px 0px 130px;
+
+}
+.signin-inputs{
+    margin:10px 0px ;
+   display: flex;
+   flex-direction: column;
+   height:85px;
+    width: 275px;
+    text-align: left;
+    font: normal normal normal 12px/15px Open Sans;
+    letter-spacing: 0.42px;
+    color: #5861AE;
+    opacity: 1;
+}
+.signin-blueline{
+width: 398px;
+height: 1.5px;
+background-color: #5861AE;
+opacity: 1;
+}
+.signin-inputs input,.signin-inputs label .signin-blueline{
+    margin: 12.22px 0px;
+}
+.signin-inputs input{
+    border-style: hidden;
+    width: 322px;
+    height: 19px;
+    text-align: left;
+    font: normal normal normal 15px/25px Open Sans;
+    letter-spacing: 2px;
+    color: #424548;
+    opacity: 1;
+}
+
+#Button-signin{
+    position: absolute;
+    top: 530px;
+    left: 243px;
+    width: 150px;
+    height: 50px;
+    border: #5861AE;
+    color: white;
+    background: #5861AE 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+#Padlock{
+    position: absolute;
+    top: 372px;
+left: 506px;
+width: 15px;
+height: 20px;
+opacity: 1;
+}
+.Forgot-password{
+position: absolute;
+top: 420px;
+left: 380px;
+width: 140px;
+height: 22px;
+font: normal normal medium 16px/26px Avenir;
+letter-spacing: 0.64px;
+color: #4552C1;
+text-transform: capitalize;
+opacity: 1;
+}
+#Button-signin{
+    cursor: pointer;
+}

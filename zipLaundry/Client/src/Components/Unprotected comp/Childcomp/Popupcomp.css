@@ -1,0 +1,26 @@
+#Popup-reg-comp{
+    position: fixed;
+    margin: 10% 33%;
+    height: 400px;
+    width: 390px;
+    background-color: white;
+    border: solid gray 1px;
+    border-radius: 10px;
+}
+#Popup-reg-comp button{
+    color: rgb(241, 248, 255);
+    background-color: rgb(76, 76, 221);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin-left: 161px;
+    
+}
+#Popup-reg-comp p{
+    margin: 120px 25px 35px 25px;
+text-align: center;
+font-size: 25px;
+}
+#Popup-reg-comp button:hover{
+cursor: pointer;
+}

@@ -1,0 +1,158 @@
+#Register-comp{
+    position: absolute;
+    top: 81px;
+left: 402px;
+width: 1038px;
+height: 766px;
+background: #F8F9FF 0% 0% no-repeat padding-box;
+opacity: 1;
+}
+.terms-true{
+position: absolute;
+top: 662.5px;
+left: 480px;
+width: 150px;
+height: 50px;
+background: #5861AE 0% 0% no-repeat padding-box;
+border-radius: 4px;
+font: normal normal bold 15px/20px Open Sans;
+letter-spacing: 0.3px;
+color: #FFFFFF;
+opacity: 1;
+border:#5861AE;
+}
+.terms-false{
+    display: none;
+}
+.number-validity-true{
+display: none;
+}
+.number-validity-false{
+    display: block;
+    position: absolute;
+    font:italic normal smaller 10/15px open Sans;
+    top: 285px;
+    left: 267px;
+    color: red;
+}
+#Heading-register{
+    position: absolute;
+top: 45px;
+left: 63px;
+width: 157px;
+height: 44px;
+text-align: left;
+font: normal normal medium 32px/60px Avenir;
+letter-spacing: 1.28px;
+color: #5861AE;
+text-transform: uppercase;
+}
+.Label-register{
+width: 322px;
+height: 27px;
+text-align: left;
+font: normal normal normal 17px/27px Open Sans;
+letter-spacing: 0.6px;
+color: #77838F;
+opacity: 1;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: left;
+    margin: 100px 65px;
+}
+.grid-cell{
+    display: flex;
+    flex-direction: column;
+   margin: 16px 65px 16px 0px;
+}
+.blue-line-register{
+    width: 398px;
+    height: 1.5px;
+    background-color: #5861AE;
+opacity: .87;
+}
+.blue-line-register,.Label-register, .grid-cell input ,.grid-cell select{
+    margin-top: 8px;
+}
+
+.grid-cell input, .grid-cell select{ 
+        width :  322px;
+        height: 22px;
+        text-align: left;
+        font: normal normal normal 14px/24px Open Sans;
+        letter-spacing: 0.6px;
+        color: #424548;
+        border-style: hidden;
+        background-color: #F8F9FF; 
+}
+.grid-cell select{
+    width: 398px;
+}
+.emailexist-false ,.numberexist-false{
+    display:none;
+}
+.emailexist-true{
+    font-size: 14px/20px;
+    color: red;
+    position: absolute;
+    top: 175px;;
+    left:530px;  
+}
+.numberexist-true{
+    font-size: 14px/20px;
+    color: red;
+    position: absolute;
+    top:290px;
+    left:68px;
+}
+
+
+#checkbox-register{
+    position: absolute;
+top: 585px;
+left: 218px;
+width: 22px;
+height: 22px;
+border: 1px solid #707070;
+border-radius: 3px;
+opacity: 1;
+}
+
+#Terms-register{
+position: absolute;
+top: 575px;
+left: 252px;
+width: 566px;
+height: 22px;
+text-align: left;
+text-decoration: underline;
+font: normal normal normal 14px/20px Open Sans;
+letter-spacing: 0.49px;
+color: #5861AE;
+}
+#Button-div-register{
+position: absolute;
+top: 662.5px;
+left: 480px;
+width: 150px;
+height: 50px;
+background: #5861AE 0% 0% no-repeat padding-box;
+border-radius: 4px;
+opacity: .5;
+}
+#button-content{
+    top: 15px;
+    position: absolute;
+   left: 47px;
+    font: normal normal bold 15px/20px Open Sans;
+    letter-spacing: 0.3px;
+    color: #FFFFFF;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
