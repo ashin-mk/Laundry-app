@@ -143,3 +143,37 @@ opacity: 1;
     list-style: none;
     top:40px;
 }
+
+#sortby{
+    position: absolute;
+    left: 220px;
+    top: 85px;
+    padding: 0 5px;
+    width: 70px;
+    text-align: center;
+    height: 28px;
+    background-color: #1B2734;
+    color: #FFFFFF;
+    border-radius: 5px;
+    z-index: 2;
+}
+#sortby ul{
+    display: none;
+    position:relative;
+    top: -10px;}
+#sortby ul li{
+    list-style: none;
+    border-radius: 0px;
+   margin:0 -5px 0 -45px;
+
+    background-color: #5861AE;
+}
+
+#sortby:hover>ul{
+    display: block;
+    
+}
+#sortby li:hover{
+    background-color: #09868b;
+    cursor: pointer;
+}

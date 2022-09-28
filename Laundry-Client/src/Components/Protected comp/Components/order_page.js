@@ -13,11 +13,14 @@ const OrderPage = ()=>{
     const [issearch,setisSearch]=useState(false)
     const [search,setSearch]=useState("")
     const [filtercity,setFilterCity]=useState()
+    const [sort,setSort]=useState(false)
     const [isfilter,setIsfilter]=useState(false)
     const [orderData, setOrderData] = useState([]);
+    const [date,setdate]=useState(true)
     const Authtoken=localStorage.getItem("authorization")
     const [orderhistory,setorderhistory]=useState(false)
     const [viewdata, setViewdata] = useState([]);
+    const month=["January","February","March","April","May","June","July","August","September","October","November","December"]
     useEffect(() => {
         axios({
             method:'GET',
@@ -32,10 +35,59 @@ const OrderPage = ()=>{
                     setOrderData(datas.data)
                 }
                 })
-    }, [])
+    }, [date])
     const handleView = (data) =>{
         setViewdata(data);
         
+    }
+    const handleSort=(k)=>{
+        setSort(!sort)
+      if(k==="LtoH"){
+        orderData.sort(function(a,b){
+        
+            if(a.price>b.price){
+                return 1
+            }else if(a.price<b.price){
+                
+                return -1
+            }else{   
+                return 0
+            }
+        })
+      }else if(k==="HtoL"){
+        orderData.sort(function(a,b){
+            if(a.price>b.price){
+                return -1
+            }else if(a.price<b.price){       
+                return 1
+            }else{    
+                return 0
+            }
+        })
+       
+      }else if(k==="itemsH"){
+        orderData.sort(function(a,b){
+            if(a.items.length>b.items.length){
+                return -1
+            }else if(a.items.length<b.items.length){
+                return 1
+            }else{
+                return 0
+            }
+        })
+
+      }else{
+        orderData.sort(function(a,b){
+            if(a.items.length>b.items.length){
+                return 1
+            }else if(a.items.length<b.items.length){
+                return -1
+            }else{
+                return 0
+            }
+        })
+
+      }
     }
     const handleSearch=(e)=>{
 setSearch(e.target.value)
@@ -50,6 +102,15 @@ setSearch(e.target.value)
        {orderhistory && 
        <div>
        <HeaderP2/>
+       <div id="sortby">Sort By
+       <ul >
+       <li onClick={()=>setdate(!date)}>Date</li>
+        <li onClick={()=>handleSort("LtoH")} >Price : L-H</li>
+        <li onClick={()=>handleSort("HtoL")} >Price : H-L</li>
+        <li onClick={()=>handleSort("itemsH")}>Items : L-S</li>
+        <li onClick={()=>handleSort("itemsL")}>Items : S-L</li>
+       </ul>
+       </div>
        <p className="orderv">Order | {orderData.length}</p>
        <Link to="/create-order"><button className="create">Create</button></Link>
         <div className="class">
@@ -59,6 +120,7 @@ setSearch(e.target.value)
         <div className="order">
         
         <table >
+            <thead>
             <tr className="order_table" style={{border: "none"}}>
                 <th style={{width:"110px"}}>
                     Order Id
@@ -66,31 +128,28 @@ setSearch(e.target.value)
                 <th style={{width:"190px"}} className="filterDate">
                     Order Date & Time
                     <ul>
-                        <li onClick={()=>{setIsfilter(true) , setFilterCity("January")}}>January</li>
-                        <li onClick= {()=>{setIsfilter(true) , setFilterCity("February")}}>February</li>
-                        <li onClick= {()=>{setIsfilter(true) , setFilterCity("March")}}>March</li>
-                        <li onClick= {()=>{setIsfilter(true) , setFilterCity("April")}}>April</li>
-                        <li onClick= {()=>{setIsfilter(true) , setFilterCity("May")}}>May</li>
-                        <li onClick= {()=>{setIsfilter(true) , setFilterCity("June")}}>June</li>
-                        <li onClick= {()=>{setIsfilter(true) , setFilterCity("July")}}>July</li>
-                        <li onClick= {()=>{setIsfilter(true) , setFilterCity("August")}}>August</li>
-                        <li onClick= {()=>{setIsfilter(true) , setFilterCity("September")}}>September</li>
-                        <li onClick= {()=>{setIsfilter(true) , setFilterCity("October")}}>October</li>
-                        <li onClick= {()=>{setIsfilter(true) , setFilterCity("November")}}>November</li>
-                        <li onClick= {()=>{setIsfilter(true) , setFilterCity("December")}}>December</li>
+                        {
+                            month.map((k,i)=>{
+                                return(
+                                    <li key={i} onClick={()=>{setIsfilter(true) ; setFilterCity(k)}} >
+{k}
+                                    </li>
+                                )
+                            })
+                        }
+                        
                     </ul>
                     
                 </th>
                 <th style={{width:"155px"}} >
                     Store Location
-                   
                 </th>
                 <th style={{width:"128px"}} className="filtercity">
                     City
                     <ul className="filtercityul">
-                        <li onClick={()=>{setFilterCity("Jp Nagar"),setIsfilter(true)}}>Jp Nagar</li>
-                        <li onClick={()=>{setFilterCity("Alkapuri"),setIsfilter(true)}}>Alkapuri</li>
-                        <li onClick={()=>{setFilterCity("Pink City"),setIsfilter(true)}}>Pink City</li>
+                        <li onClick={()=>{setFilterCity("Jp Nagar");setIsfilter(true)}}>Jp Nagar</li>
+                        <li onClick={()=>{setFilterCity("Alkapuri");setIsfilter(true)}}>Alkapuri</li>
+                        <li onClick={()=>{setFilterCity("Pink City");setIsfilter(true)}}>Pink City</li>
                     </ul>
                 </th>
                 <th style={{width:"180px"}}>
@@ -112,7 +171,8 @@ setSearch(e.target.value)
                     View
                 </th>
             </tr>
-        
+            </thead>
+            <tbody>
             {issearch===false && orderData.map((data, index)=>{
                 if(isfilter===true && filtercity!==data.storeInfo.name && data.dateTime.includes(filtercity)===false){
                 return
@@ -149,6 +209,7 @@ setSearch(e.target.value)
                   className="btn1" 
                   onClick={() => setSummary(true)}><span onClick={() => handleView(data)} className="material-symbols-outlined"><img src="/images/eyebutton.jpg" style={{height:"25px",width:"32px",marginTop:"12px"}}/></span></td>
                     </tr>
+                  
                 )
             }
             
@@ -159,8 +220,7 @@ setSearch(e.target.value)
                     }
                 if(data.orderId.includes(search)){ 
                 return(
-
-                    <tr key={index} className="order_data">
+         <tr key={index} className="order_data">
                     <td className="order_p" style={{width: "80px"}}>
                     {data.orderId}
                     </td>
@@ -190,9 +250,10 @@ setSearch(e.target.value)
                   className="btn1" 
                   onClick={() => setSummary(true)}><span onClick={() => handleView(data)} className="material-symbols-outlined"><img src="/images/eyebutton.jpg" style={{height:"25px",width:"32px",marginTop:"12px"}}/></span></td>
                     </tr>
+            
                 )}
             })}
-        
+          </tbody>
             </table>
             <div>
                 </div>
@@ -205,7 +266,7 @@ setSearch(e.target.value)
         <p className="orderno">Order | 0</p>
         <div className="create_search">
         <input type="search" className="search"/>
-        <img className='magnifine' src="/images/search.png" alt=""/>
+        <img className='magnifine' src="/images/search.png" alt="" style={{display:"none"}}/>
         </div>
         <div className="create_order">
             <p>No Order Available</p>

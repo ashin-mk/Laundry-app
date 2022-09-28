@@ -13,7 +13,7 @@ app.use(express.urlencoded({extended: false}));
 
 app.listen(process.env.PORT || 3001,(err)=>{
     if(!err){
-        console.log("Server connected succesfully at 3001")
+        console.log("Server is running")
     }
     else{
         console.log(err)

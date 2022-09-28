@@ -61,6 +61,10 @@ const handleProceed=()=>{
     alert("Please Select some items")
   }
 }
+const handleSearch=(e)=>{
+ setisSearch(true)
+ setSearch(e.target.value)
+}
 
 React.useEffect(()=>{
   //console.log(orderDetails)
@@ -88,7 +92,7 @@ React.useEffect(()=>{
           <p className="orderno">Create Order</p>
           <div className="searchBox">
               <img className='magnifine' src="/images/search.png" alt=""/>
-              <input id="searchInput" type='text' onChange={(e)=>{setisSearch(true),setSearch(e.target.value)}} />
+              <input id="searchInput" type='text' onChange={handleSearch} />
           </div>
       </div>
     

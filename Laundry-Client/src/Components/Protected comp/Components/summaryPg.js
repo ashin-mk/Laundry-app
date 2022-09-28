@@ -6,6 +6,7 @@ import './summaryPg.css';
 
 const SummaryPg = (props) => {
     // console.log(props.orderDetails)
+    // console.log(props)
     const Token = localStorage.getItem("authorization")
     // console.log(Token)
 
@@ -125,7 +126,7 @@ else{
                         <div className="location">
                             <p><b>Store Location</b></p>
                             <select name="address" onChange={handleChange} id="address">
-                                <option value="none" selected disabled hidden className="disabled">Store Location</option>
+                                <option  hidden className="disabled" defaultValue=''>Store Location</option>
                                 {actions.map(store => (<option value={JSON.stringify(store)} key={store.name}>{store.name}</option>))}
                             </select>
 
@@ -150,6 +151,7 @@ else{
                     <div className="orderDetail">
                         <div className="ord"><p><b>Order Detail</b></p></div>
                         <div id="OrderedInfo">{props.orderDetails.map(item => (<Totalorder info={item} key={item.name}
+                      
                             orderDetails={props.orderDetails} />))}</div>
                         <div id="price_foot">
                         <div className="sub_total">Sub total: <div className="Sub_val">{subTotal}</div></div>

@@ -92,7 +92,7 @@ const SummaryPage = (props)=>{
 const Totalorder = (props) => {
 
     const washType = ["washing", "ironing", "dry-wash", "bleach"];
-    // console.log(props.viewdatasummary.items)
+    console.log(props)
     return (
         <>
         
