@@ -1,6 +1,7 @@
 import React, { useState }from 'react'
 import "./Register.css"
 import axios from 'axios'
+import UrlGEn from '../../UrlGEn'
 const Register = (props) => {
   const [termsandcondition,settermsandcondition]=useState("terms-false")
   const [data,setdata]=useState({})
@@ -8,10 +9,12 @@ const Register = (props) => {
   const [numberValidation,setnumberValidation]=useState("number-validity-true")
   const [emailerror,setemailerror]=useState("emailexist-false")
   const [numbererror,setnumbererror]=useState("numberexist-false")
+  const District=["Malappuram","Calicut","Idukki","Kottayam","Wayanad","Coimbathure","Chennai","Bengaluru","Hyderabad","Mumbai","Manglore"]
+  const States=["Kerala","Karnataka","Tamil Nadu", "Maharashtra","Andra Pradesh","Gujarath","Punjab"]
   const handleRegister=(e)=>{
     e.preventDefault()
     if((data.Phone+"").length===10  &&data.Email.includes('@gmail.com')){
- axios.post("http://localhost:3001/Register",data)
+ axios.post(UrlGEn("Register"),data)
     .then(()=>{
       props.handlepopup(true)
     })
@@ -114,13 +117,11 @@ if(value.length){
 <label className="Label-register" htmlFor="State-register">State</label>
 <select   required id="State-register" onChange={(e)=>handleFormData(e,"State")}>
   <option value=""></option>
-        <option value="Kerala">kerala</option>
-        <option value="TamilNadu">TamilNadu</option>
-      <option value="Andhra-Pradesh">Andhra-Pradesh</option>
-        <option value="Jharkhand">Jharkhand</option>
-        <option value="Maharashtra">Maharashtra</option>
-        <option value="Sikkim">Sikkim</option>
-        <option value="Karnataka">Karnataka</option>
+  {States.map((k)=>{
+    return(
+      <option value={k}>{k}</option>
+    )
+  })}
 </select>
 <div className='blue-line-register'></div>
 </div>
@@ -128,19 +129,11 @@ if(value.length){
 <label className="Label-register" htmlFor="District-register">District</label>
 <select  required id="District-register" onChange={(e)=>handleFormData(e,"District")}>
 <option value=""></option>
-<option value="West-Godawari">West-Godawari</option>
-      <option value="Malappuram">Malappuram</option>
-      <option value="Kozhikode">Kozhikode</option>
-      <option value="DurgaPure">DurgaPure</option>
-      <option value="Jamnagar">Jamnagar</option>
-      <option value="Amritsar">Amritsar</option>
-      <option value="Kannur">Kannur</option>
-      <option value="Darjeeling">Darjeeling</option>
-      <option value="Chennai">Chennai</option>
-      <option value="Coimbatore">Coimbatore</option>
-      <option value="Bengaluru">Bengaluru</option>
-      <option value="idukki">idukki</option>
-      <option value="Bellari">Bellari</option>
+{District.map((k)=>{
+    return(
+      <option value={k}>{k}</option>
+    )
+  })}
 </select>
 <div className='blue-line-register'></div>
 </div>

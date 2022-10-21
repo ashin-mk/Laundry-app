@@ -2,12 +2,13 @@ import React from "react";
 import "./delete_alert.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import UrlGEn from "../../UrlGEn";
 
   const Alert =(props)=>{
     // console.log(props)
       const DeleteOrder = (id)=>{
         // e.preventDefault();
-        axios.delete(`http://localhost:3001/cancel/${id}`).then(()=>{
+        axios.delete(UrlGEn(`cancel/${id}`)).then(()=>{
           window.location.reload(false)
           // Navigate("/viewOrder");
         })

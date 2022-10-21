@@ -11,9 +11,13 @@ const SummaryPage = (props)=>{
         return  <Alert viewdatasummary={props.viewdatasummary} closeAlert={setAlert}/>
     }
     let subTotal = 0, pickUpCharge = 90, total = 0;
-    props.viewdatasummary.items.forEach(item => {
-        subTotal += Number(item.price)
-    })
+    try {
+        props.viewdatasummary.items.forEach(item => {
+            subTotal += Number(item.price)
+        }) 
+    } catch (error) {
+        window.location.reload(false)
+    }
     total = subTotal + pickUpCharge;
     return(
         <>

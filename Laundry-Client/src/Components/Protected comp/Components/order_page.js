@@ -7,6 +7,7 @@ import HeaderP2 from "./headerP2";
 import SideBar from "./sidebar"
 import axios from "axios";
 import FooterSecond from "./footerP2";
+import UrlGEn from "../../UrlGEn";
 
 const OrderPage = ()=>{
     const [summary, setSummary] = useState(false);
@@ -24,7 +25,7 @@ const OrderPage = ()=>{
     useEffect(() => {
         axios({
             method:'GET',
-            url:'http://localhost:3001/create-order',
+            url:UrlGEn('create-order'),
             headers:{
                 authorization:Authtoken
             }
@@ -40,53 +41,31 @@ const OrderPage = ()=>{
         setViewdata(data);
         
     }
+    const sortingFunctionAsc=(sortingVal)=>{
+orderData.sort(function(a,b){
+    if(a[sortingVal]>b[sortingVal]){
+        return 1
+    }else if(a[sortingVal]<b[sortingVal]){
+        return -1
+    }return 0
+})   }
+ const sortingFunctionDsc=(sortingVal)=>{
+    orderData.sort(function(a,b){
+        if(a[sortingVal]<b[sortingVal]){
+            return 1
+        }else if(a[sortingVal]>b[sortingVal]){
+            return -1
+        }return 0
+    })
+    }
     const handleSort=(k)=>{
         setSort(!sort)
       if(k==="LtoH"){
-        orderData.sort(function(a,b){
-        
-            if(a.price>b.price){
-                return 1
-            }else if(a.price<b.price){
-                
-                return -1
-            }else{   
-                return 0
-            }
-        })
+        sortingFunctionAsc("price")
       }else if(k==="HtoL"){
-        orderData.sort(function(a,b){
-            if(a.price>b.price){
-                return -1
-            }else if(a.price<b.price){       
-                return 1
-            }else{    
-                return 0
-            }
-        })
-       
-      }else if(k==="itemsH"){
-        orderData.sort(function(a,b){
-            if(a.items.length>b.items.length){
-                return -1
-            }else if(a.items.length<b.items.length){
-                return 1
-            }else{
-                return 0
-            }
-        })
-
-      }else{
-        orderData.sort(function(a,b){
-            if(a.items.length>b.items.length){
-                return 1
-            }else if(a.items.length<b.items.length){
-                return -1
-            }else{
-                return 0
-            }
-        })
-
+       sortingFunctionDsc("price")
+      }else if(k==="orderId"){
+      sortingFunctionAsc("orderId")
       }
     }
     const handleSearch=(e)=>{
@@ -107,8 +86,7 @@ setSearch(e.target.value)
        <li onClick={()=>setdate(!date)}>Date</li>
         <li onClick={()=>handleSort("LtoH")} >Price : L-H</li>
         <li onClick={()=>handleSort("HtoL")} >Price : H-L</li>
-        <li onClick={()=>handleSort("itemsH")}>Items : L-S</li>
-        <li onClick={()=>handleSort("itemsL")}>Items : S-L</li>
+        <li onClick={()=>handleSort("orderId")}>Order id</li>
        </ul>
        </div>
        <p className="orderv">Order | {orderData.length}</p>

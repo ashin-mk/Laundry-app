@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import ConfirmationPop from "./confirmation";
 import './summaryPg.css';
+import UrlGEn from "../../UrlGEn";
 
 
 const SummaryPg = (props) => {
@@ -14,7 +15,7 @@ const SummaryPg = (props) => {
     const [storedetails,setstoredetails]=useState(false)
     // console.log(userData)
     useEffect(() => {
-        fetch("http://localhost:3001/user", {
+        fetch(UrlGEn("user"), {
             headers: {
                 authorization: Token,
             },
@@ -82,7 +83,7 @@ const SummaryPg = (props) => {
         // console.log(trigger);
         if(storedetails===true){
             axios({method:'POST',
-            url:"http://localhost:3001/create-order",
+            url:UrlGEn("create-order"),
                 data:{
                     userId: userData[0].Email,
                     orderId: orderId,
