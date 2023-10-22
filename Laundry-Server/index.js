@@ -7,12 +7,7 @@ const productController = require("./routes/product");
 const orderController = require("./routes/order")
 const register = require("./routes/register&signin")
 //console.log(productController)
-const corsOptions ={
-    origin:'*', 
-    credentials:true,            //access-control-allow-credentials:true
-    optionSuccessStatus:200
-}
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
@@ -24,7 +19,12 @@ app.listen(process.env.PORT || 3001,(err)=>{
         console.log(err)
     }
 });
-const laundryDB= "mongodb://localhost/Laundry"
+const laundryDB=process.env.DB
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 mongoose.connect(laundryDB,()=>{
     console.log("Successfully connect to db")
 },(err)=>{
