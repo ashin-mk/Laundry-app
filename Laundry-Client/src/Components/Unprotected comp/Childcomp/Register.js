@@ -1,7 +1,7 @@
 import React, { useState }from 'react'
 import "./Register.css"
 import axios from 'axios'
-import UrlGEn from '../../UrlGEn'
+import UrlGEn,{config} from '../../UrlGEn'
 const Register = (props) => {
   const [termsandcondition,settermsandcondition]=useState("terms-false")
   const [data,setdata]=useState({})
@@ -14,7 +14,12 @@ const Register = (props) => {
   const handleRegister=(e)=>{
     e.preventDefault()
     if((data.Phone+"").length===10  &&data.Email.includes('@gmail.com')){
- axios.post(UrlGEn("Register"),data)
+ axios({
+  method:"POST",
+  data:data,
+  url:UrlGEn("Register"),
+  ...config
+ })
     .then(()=>{
       props.handlepopup(true)
     })

@@ -7,7 +7,7 @@ import HeaderP2 from "./headerP2";
 import SideBar from "./sidebar"
 import axios from "axios";
 import FooterSecond from "./footerP2";
-import UrlGEn from "../../UrlGEn";
+import UrlGEn,{config} from "../../UrlGEn";
 
 const OrderPage = ()=>{
     const [summary, setSummary] = useState(false);
@@ -27,7 +27,8 @@ const OrderPage = ()=>{
             method:'GET',
             url:UrlGEn('create-order'),
             headers:{
-                authorization:Authtoken
+                authorization:Authtoken,
+                ...config.headers
             }
         })
             .then((datas) => {

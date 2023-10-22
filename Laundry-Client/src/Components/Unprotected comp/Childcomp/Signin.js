@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "./Signin.css"
 import axios, {Axios} from 'axios'
 import { useNavigate } from 'react-router-dom'
+import UrlGEn,{config} from '../../UrlGEn'
 
 const Signin = () => {
 const [passwordvalidity,setpasswordvalidity]=useState(true)
@@ -15,7 +16,12 @@ const [data,setdata]=useState({
   const handlesubmit=(e)=>{
 e.preventDefault()
 if(data.Password.length && data.User.length){
-axios.post("http://localhost:3001/Signin",data).then((loginData)=>{
+axios({
+  ...config,
+  method:"POST",
+  data:data,
+  url:UrlGEn("Signin")
+}).then((loginData)=>{
   localStorage.setItem("authorization",loginData.data.Authtoken) 
   // console.log(loginData.data.username)
   localStorage.setItem("username",loginData.data.username)

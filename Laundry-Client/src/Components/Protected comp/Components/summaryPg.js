@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import ConfirmationPop from "./confirmation";
 import './summaryPg.css';
-import UrlGEn from "../../UrlGEn";
+import UrlGEn,{config} from "../../UrlGEn";
 
 
 const SummaryPg = (props) => {
@@ -18,6 +18,7 @@ const SummaryPg = (props) => {
         fetch(UrlGEn("user"), {
             headers: {
                 authorization: Token,
+                ...config.headers
             },
         })
             .then((res) => res.json())
@@ -95,7 +96,8 @@ const SummaryPg = (props) => {
                 },
                 headers : {
                  authorization: Token,
-                 "Content-Type": "application/json"
+                 "Content-Type": "application/json",
+                 ...config.headers
                 },
             }).then((res) => {
                setTrigger("true");
