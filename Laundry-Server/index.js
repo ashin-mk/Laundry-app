@@ -26,7 +26,9 @@ mongoose.connect(laundryDB,()=>{
     console.log(err)
 });
 
-
+app.get('/',(req,res)=>{
+    res.status(200).send({message:'success'})
+})
 app.use("/",register);
 app.use("/",productController);
 app.use("/", orderController);
