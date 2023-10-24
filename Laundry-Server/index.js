@@ -20,13 +20,13 @@ app.listen(process.env.PORT || 3001,(err)=>{
     }
 });
 const laundryDB=`${process.env.DB}`
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
-mongoose.connect(laundryDB,()=>{
-    console.log("Successfully connect to db")
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
+mongoose.connect(`${process.env.DB}`,{ useNewUrlParser: true, useUnifiedTopology: true },(e)=>{
+    console.log("Successfully connect to db",e)
 },(err)=>{
     console.log(err)
 });

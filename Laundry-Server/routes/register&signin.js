@@ -9,7 +9,8 @@ const salt=10
 
 router.post("/Register",async(req,res)=>{
     //checking email is unique or not
-    const Email= await Users.find({Email:req.body.Email})
+   try {
+    const Email= await Users?.find({"Email":req.body.Email})
     if(Email.length){
         res.status(400).send("EmailExist")
      }
@@ -50,22 +51,25 @@ router.post("/Register",async(req,res)=>{
             }) // saltclosing 
          }
         }
+   } catch (error) {
+    console.log('err=-----',error)
+    res.status(500).send({error:'ERR'})
+   }
     }) // registerclosing
 
 
     //Signin
 
     router.post("/Signin",async(req,res)=>{
-      let USER=""
+      try {
+        let USER=""
       // console.log(isNaN(req.body.User))
       if(isNaN(req.body.User)===false){
         USER="Phone"
       }else{
          USER="Email"
       }
-      
       const signindata= await Users.find({[USER]:req.body.User})
-      // console.log(signindata)
          if(signindata.length){
            const data= await bcrypt.compare(req.body.Password,signindata[0].Password)
              if(data){
@@ -81,6 +85,9 @@ router.post("/Register",async(req,res)=>{
           else{
             res.status(400).send(`Invalid User`)
           }
+      } catch (error) {
+        res.status(500).send({message:'error',err:error})
+      }
     })
 
     router.get("/user",(req,res)=>{

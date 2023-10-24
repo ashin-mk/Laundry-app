@@ -17,7 +17,7 @@ const [data,setdata]=useState({
 e.preventDefault()
 if(data.Password.length && data.User.length){
 axios({
-  ...config,
+...config,
   method:"POST",
   data:data,
   url:UrlGEn("Signin")
