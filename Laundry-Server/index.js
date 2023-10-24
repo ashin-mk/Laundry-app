@@ -25,8 +25,8 @@ const laundryDB=`${process.env.DB}`
 //     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 //     next();
 //   });
-mongoose.connect(`${process.env.DB}`,{ useNewUrlParser: true, useUnifiedTopology: true },(e)=>{
-    console.log("Successfully connect to db",e)
+mongoose.connect(`${process.env.DB}`,(e)=>{
+    console.log("Successfully connect to db",process.env.DB,e)
 },(err)=>{
     console.log(err)
 });
