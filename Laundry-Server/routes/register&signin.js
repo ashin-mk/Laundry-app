@@ -62,6 +62,7 @@ router.post("/Register",async(req,res)=>{
 
     router.post("/Signin",async(req,res)=>{
       try {
+        console.log('signin is calling',req.body)
         let USER=""
       // console.log(isNaN(req.body.User))
       if(isNaN(req.body.User)===false){
