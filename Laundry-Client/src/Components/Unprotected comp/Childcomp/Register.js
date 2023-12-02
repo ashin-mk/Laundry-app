@@ -8,12 +8,15 @@ const Register = (props) => {
   const [emaivalidation,setemailvalidation]=useState(true)
   const [numberValidation,setnumberValidation]=useState("number-validity-true")
   const [emailerror,setemailerror]=useState("emailexist-false")
+
+  const [loading,setLoading]=useState(false)
   const [numbererror,setnumbererror]=useState("numberexist-false")
   const District=["Malappuram","Calicut","Idukki","Kottayam","Wayanad","Coimbathure","Chennai","Bengaluru","Hyderabad","Mumbai","Manglore"]
   const States=["Kerala","Karnataka","Tamil Nadu", "Maharashtra","Andra Pradesh","Gujarath","Punjab"]
   const handleRegister=(e)=>{
     e.preventDefault()
     if((data.Phone+"").length===10  &&data.Email.includes('@gmail.com')){
+      setLoading(true)
  axios({
   method:"POST",
   data:data,
@@ -21,9 +24,11 @@ const Register = (props) => {
   ...config
  })
     .then(()=>{
+      setLoading(false)
       props.handlepopup(true)
     })
   .catch((err)=>{
+    setLoading(false)
   if(err.response.data==="EmailExist"){
 setemailerror("emailexist-true")
 setTimeout(()=>{
@@ -155,7 +160,7 @@ if(value.length){
 </div>
 <input type="checkbox" id='checkbox-register' required onChange={()=>getbuttonClass()}/>
 <p id='Terms-register'>I agree to Terms & Condition receiving marketing and promotional materials</p>
-<button type='submit'  className='terms-true'>Register</button><button className={termsandcondition} onClick={checkInputs()!==8?null:(e)=>handleRegister(e)}>Register</button>
+{loading?<button className={termsandcondition} onClick={()=>{}}>Loading...</button>:<button className={termsandcondition} onClick={checkInputs()!==8?null:(e)=>handleRegister(e)}>Register</button>}
 </form>
     </div>
   )

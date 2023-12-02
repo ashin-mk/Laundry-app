@@ -7,6 +7,7 @@ import UrlGEn,{config} from '../../UrlGEn'
 const Signin = () => {
 const [passwordvalidity,setpasswordvalidity]=useState(true)
 const [emailvalidity,setemailvalidity]=useState(true)
+const [loading,setLoading]=useState(false)
 const navigate=useNavigate()
 const [data,setdata]=useState({
   "User":"",
@@ -14,8 +15,11 @@ const [data,setdata]=useState({
 })
 
   const handlesubmit=(e)=>{
+    if(loading){
+      return}
 e.preventDefault()
 if(data.Password.length && data.User.length){
+  setLoading(true)
 axios({
 ...config,
   method:"POST",
@@ -27,8 +31,10 @@ axios({
   localStorage.setItem("username",loginData.data.username)
   // console.log(localStorage.getItem("authorization"))
 navigate("/viewOrder")
+setLoading(false)
 })
 .catch((err)=>{
+  setLoading(false)
   if(err.response.data==="Invalid password"){
     setpasswordvalidity(false)
     setTimeout(()=>{
@@ -87,7 +93,7 @@ setdata({...data,[id]:e.target.value})
       </div>
       </div>
       <p className='Forgot-password'>Forgot Password?</p>
-     <button onClick={(e)=>handlesubmit(e)} id="Button-signin">Sign In</button>
+   {loading?  <button onClick={()=>[]} id="Button-signin">Loading...</button>:  <button onClick={(e)=>handlesubmit(e)} id="Button-signin">Sign In</button>}
      <img id='Padlock' src='images/padlock.svg'/>
      </form>
     
